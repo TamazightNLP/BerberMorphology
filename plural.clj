@@ -1,3 +1,8 @@
+;; add a function that can detect nouns that have irregular plural form.
+;; for example: the noun 'ul'(heart) has a special plural form in 'ulawen'
+;; first try: scan the letters in noun, detect the vowels. There must be a way to formalize the
+;; vowel consonant alternations to determine which nouns could have irregular plurals.
+
 (defn plural [s]
         (if (= (first s) \a);; characters: \c
           (str \i (subs s 1) "en")))
@@ -32,7 +37,7 @@
 ;; because the awen ending has an 'en' in it too.
 (defn lemma [s]
         (cond
-            
+
             (and (=(first s) \i)
                   (= "awen" (subs s (-(.length s)4))))
             (awen-plural s)
